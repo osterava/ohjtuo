@@ -15,7 +15,6 @@ class PlayerReaderStub:
 
 class TestStatisticsService(unittest.TestCase):
     def setUp(self):
-        # Annan "stub"-luokan olion
         self.stats = StatisticsService(PlayerReaderStub())
 
     def test_search(self):
