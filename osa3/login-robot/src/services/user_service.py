@@ -1,5 +1,6 @@
 from entities.user import User
 import re
+import sys, pdb
 
 class UserInputError(Exception):
     pass
@@ -14,6 +15,7 @@ class UserService:
         self._user_repository = user_repository
 
     def check_credentials(self, username, password):
+        
         if not username or not password:
             raise UserInputError("Username and password are required")
 
@@ -41,6 +43,7 @@ class UserService:
             raise UserInputError("Username contains invalid characters")
         if len(username) < 3:
             raise UserInputError("Username must be at least 3 characters long")
+        
         if self._user_repository.find_by_username(username):
             raise UserInputError("Username already taken")
 
